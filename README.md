@@ -2,13 +2,16 @@
 
 MeetSlot is a full-stack web application that makes scheduling simple. Hosts can create time slots, and visitors can browse available times and book a slot using their name and email address.
 
+**Live Demo:** https://meetslot-ashy.vercel.app  
+**GitHub Repository:** https://github.com/HristijanPetreskii/meetslot
+
 ## Features
 
 - **Create time slots:** Add a date, start time, and duration.
 - **View availability:** Browse available time slots in chronological order.
 - **Book a slot:** Submit your name and email to reserve an available time.
 - **Prevent double booking:** Once a slot is booked, it is no longer available to others.
-- **Persistent data:** Store time slots and bookings in MongoDB.
+- **Persistent data:** Store time slots and bookings in MongoDB Atlas.
 
 ## Tech Stack
 
@@ -57,11 +60,9 @@ meetslot/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/meetslot.git
+git clone https://github.com/HristijanPetreskii/meetslot.git
 cd meetslot
 ```
-
-Replace `YOUR_GITHUB_USERNAME` with your GitHub username.
 
 ### 2. Install frontend dependencies
 
@@ -88,6 +89,14 @@ MONGODB_URI=your_mongodb_connection_string
 ```
 
 Replace `your_mongodb_connection_string` with your MongoDB connection string. Keep this file private and never commit credentials to GitHub.
+
+The frontend defaults to `http://localhost:5001/api/slots` for local development. To use a different backend URL, create a `.env.local` file in the project root:
+
+```env
+VITE_API_URL=http://localhost:5001/api/slots
+```
+
+Update the URL if your backend runs at a different address.
 
 ### 5. Start the backend
 
@@ -117,7 +126,15 @@ Open the local URL displayed by Vite, usually `http://localhost:5173`.
 | POST | `/api/slots` | Create a time slot |
 | POST | `/api/slots/:id/book` | Book an available time slot |
 
-The booking endpoint validates the booking details and prevents a slot from being booked more than once.
+The booking endpoint validates booking details and prevents a slot from being booked more than once.
+
+## Deployment
+
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** MongoDB Atlas
+
+The deployed application is available at: https://meetslot-ashy.vercel.app
 
 ## AI Tools
 
